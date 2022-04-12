@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>javascript</title>
+   <style>
+      .btn {
+         flex: 1 1 auto;
+         margin: 10px;
+         padding: 10px 24px;
+         text-align: center;
+         text-transform: uppercase;
+         transition: 0.5s;
+         background-size: 200% auto;
+         color: black;
+         box-shadow: 2px 1px 6px grey;
+         border-radius: 10px;
+         border: none;
+      }
+
+      .btn:hover {
+         background-position: right center;
+         /* change the direction of the change here */
+      }
+
+      .btn-1 {
+         background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+      }
+
+      body {
+         text-align: center;
+         background: #fc4a1a;
+         /* fallback for old browsers */
+         background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);
+         /* Chrome 10-25, Safari 5.1-6 */
+         background: linear-gradient(to right, #f7b733, #fc4a1a);
+         /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      }
+
+      .input:focus {
+         border: none;
+         outline: none;
+      }
+
+      .input {
+         color: white;
+         text-shadow: 2px 2px 6px grey;
+         text-align: center;
+         width: 400px;
+         font-size: 400px;
+         background: none;
+         border: none;
+         offset: none;
+         outline: none;
+      }
+
+      .result {
+         color: white;
+         text-shadow: 2px 2px 6px grey;
+         text-align: center;
+         width: 600px;
+         font-size: 130px;
+         background: none;
+         border: none;
+         offset: none;
+         outline: none;
+      }
+
+      .input:focus {
+         background: none;
+         border: none;
+         outline: none;
+      }
+
+      .field {
+         text-align: center;
+         width: 800px;
+         height: 400px;
+         padding: 50px;
+      }
+   </style>
+</head>
+
+<body>
+   <center>
+      <div class="field">
+         <input type="text" class="input" id="inputNumber" maxlength="1" onkeypress="return isNumber(event);">
+      </div>
+      <br>
+      <div>
+         <button id="btn" class="btn btn-1" onclick="check();">is MY LUCK?</button>
+         <button id="clr" class="btn btn-1" onclick="clr();">Clear</button>
+      </div>
+   </center>
+</body>
+
+<script>
+   function isNumber(evt) {
+      evt = (evt) ? evt : window.event;
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+         return false;
+      }
+      return true;
+   }
+
+   var random = Math.floor(Math.random() * 10) + 1;
+   function check() {
+      var box = document.getElementById('inputNumber');
+      var txtbox = document.getElementById('inputNumber').value;
+      if (txtbox != random) {
+         box.className = "result";
+         box.value = "I'm Sorry ";
+      } else {
+         box.className = "result";
+         box.value = "Hurray, You are Awesome!";
+      }
+   }
+   function clr() {
+      document.getElementById('inputNumber').className = "input";
+      document.getElementById('inputNumber').value = '';
+   }
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
